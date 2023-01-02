@@ -12,7 +12,7 @@ type testCase struct {
 	want string
 }
 
-func intArr2str(a []int) string {
+func IntArr2str(a []int) string {
 	s := ""
 	for i := len(a) - 1; i >= 0; i-- {
 		s += fmt.Sprintf("%d", a[i])
@@ -20,7 +20,7 @@ func intArr2str(a []int) string {
 	return s
 }
 
-func str2intArr(s string) []int {
+func Str2intArr(s string) []int {
 	var C []int
 	for i := len(s) - 1; i >= 0; i-- {
 		c, _ := strconv.Atoi(string(s[i]))
@@ -54,10 +54,10 @@ func TestAdd(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		A := str2intArr(tc.a)
-		B := str2intArr(tc.b)
+		A := Str2intArr(tc.a)
+		B := Str2intArr(tc.b)
 		C := add(A, B)
-		got := intArr2str(C)
+		got := IntArr2str(C)
 		if got != tc.want {
 			t.Errorf("add(%v,%v), expected %v, got %v",
 				A, B, tc.want, got)
