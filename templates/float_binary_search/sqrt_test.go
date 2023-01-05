@@ -28,6 +28,10 @@ func TestSqrt(t *testing.T) {
 			input: 2,
 			want:  1.41421,
 		},
+		{
+			input: 0.01,
+			want:  0.1,
+		},
 	}
 
 	for _, tc := range testCases {
