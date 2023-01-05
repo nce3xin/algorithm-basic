@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+// 时间复杂度O(n)，因为快速选择算法，每次选择一半的区间，
+// 所以时间复杂度 = n + n/2 + n/4 + n/8 ... = n(1+1/2+1/4+1/8+...) <= 2n
+// 如果用排序，时间复杂度就是O(n*log n)了
+
 const N int = 1e5 + 10
 
 var q []int = make([]int, N)
