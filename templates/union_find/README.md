@@ -24,3 +24,5 @@ Union（并）-find（查） set（集）
 ## 模板
 
 ![](imgs/2.png)
+
+![](imgs/3.png)
