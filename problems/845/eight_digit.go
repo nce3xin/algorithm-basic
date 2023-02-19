@@ -53,7 +53,7 @@ func bfs(start string) int {
 					// 扩展后的元素入队
 					q = append(q, t)
 				}
-				// 如果这点之前被遍历过了，那我们就得把它们交换回来
+				// 还原状态，为下一种转换情况做准备
 				t = swap(t, k, 3*a+b)
 			}
 		}
