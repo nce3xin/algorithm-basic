@@ -34,3 +34,7 @@ void add(int k,int x){
 ![](imgs/3.png)
 
 ![](imgs/4.png)
+
+## 题目
+
+- 827 双链表
