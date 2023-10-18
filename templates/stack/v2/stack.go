@@ -19,7 +19,7 @@ func pop() {
 	tt--
 }
 
-// top 大于等于 0 栈非空，小于 0 栈空
+// tt 大于 0 栈非空，小于等于 0 栈空
 func empty() bool {
 	if tt > 0 {
 		return false
