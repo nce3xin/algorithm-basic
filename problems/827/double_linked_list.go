@@ -56,6 +56,7 @@ func insertRight(k, x int) {
 	e[idx] = x
 	r[idx] = r[k]
 	l[idx] = k
+	// 下面两句顺序不能变
 	l[r[k]] = idx
 	r[k] = idx
 	idx++
@@ -68,6 +69,7 @@ func insertLeft(k, x int) {
 
 // 删除下标为k的点
 func delete(k int) {
+	// 这两句顺序可变
 	l[r[k]] = l[k]
 	r[l[k]] = r[k]
 }
