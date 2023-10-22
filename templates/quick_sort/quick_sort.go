@@ -10,6 +10,8 @@ func quickSort(q []int, l, r int) {
 	i, j := l-1, r+1 // 由于下面do-while中要先+1, 这里i,j要先往外扩一个
 	for i < j {
 		// 模拟C++模板写法中的do-while
+		// 为什么两个do while的while判断条件不能取等于号
+		// 因为加了等于i或者j会越过你取的x，这样就实现不了大于x的在右边，小于x的在左边
 		i++
 		for q[i] < x {
 			i++
