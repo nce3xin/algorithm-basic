@@ -12,9 +12,17 @@
 
 ## 2种模板
 
-怎么判断用哪个模板呢？先随便写一个check函数，判断check函数的结果是true还是false，最根本的就是看l=mid还是r=mid，如果l=mid，就要补上+1，r=mid的话就不需要补上+1。
+怎么判断用哪个模板呢？先随便写一个check函数，判断check函数的结果是true还是false，最根本的就是看l=mid还是r=mid（就是 check(mid) 后面），如果l=mid，就要补上+1，r=mid的话就不需要补上+1（是 mid = l + r + 1 >> 1 里的 +1）。
 
 ![](imgs/bsearch_template.png)
+
+来自视频评论区下方的一句话 : 有加必有减
+
+```
+int mid = l + r + 1 (加)>> 1;
+if (check(mid)) l = mid;
+else r = mid - 1  (减);
+```
 
 ## 总结
 
