@@ -2,7 +2,7 @@
 
 ## 大整数保存
 
-大整数是怎么保存的？其实是把大整数的每一位保存到数组里面。这就有个问题，存的时候，应该是高位在前，还是低位在前呢？应该倒着存，个位存到数组的第0个数里。为什么呢？因为方便存进位，在数组末尾添加进位是比较方便的。 
+大整数是怎么保存的？其实是把大整数的每一位保存到数组里面。这就有个问题，存的时候，应该是高位在前，还是低位在前呢？应该倒着存，个位存到数组的第0个数里。为什么呢？因为方便存进位，在数组末尾添加进位是比较方便的。
 
 ![](imgs/bigint-storage.png)
 
@@ -31,7 +31,7 @@ func main() {
 	}
 
 	C := add(A, B)
-	
+
 	for i := len(C) - 1; i >= 0; i-- {
 		fmt.Printf("%d", C[i])
 	}
@@ -62,3 +62,29 @@ func add(A []int, B []int) []int {
 }
 ```
 
+y总模板：
+
+```
+// C = A + B, A >= 0, B >= 0
+vector<int> add(vector<int> &A, vector<int> &B)
+{
+    if (A.size() < B.size()) return add(B, A);
+
+    vector<int> C;
+    int t = 0;
+    for (int i = 0; i < A.size(); i ++ )
+    {
+        t += A[i];
+        if (i < B.size()) t += B[i];
+        C.push_back(t % 10);
+        t /= 10;
+    }
+
+    if (t) C.push_back(t);
+    return C;
+}
+```
+
+## 题目
+
+- 791 高精度加法
