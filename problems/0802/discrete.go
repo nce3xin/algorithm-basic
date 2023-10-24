@@ -17,6 +17,7 @@ type pair struct {
 }
 
 // N 坐标x的数量上限为1e5，两个坐标l,r的数量上限也为1e5,所以加起来为3*le5;
+// n次插入和m次查询相关数据量的上界
 const N int = 3e5 + 10
 
 // a[] 存储坐标插入的值
@@ -73,7 +74,7 @@ func main() {
 		s[i] = s[i-1] + a[i]
 	}
 
-	// 处理询问
+	// 处理后m次询问操作
 	for _, item := range query {
 		l := find(item.first, alls)
 		r := find(item.second, alls)
