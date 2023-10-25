@@ -53,3 +53,43 @@ f[j] = max(f[j], f[j-v[i]]+w[i])
 ```
 
 因为 j-v[i] < j, j 又是从小到大枚举的，所以当我们更新f[j]时我们已经把f[j - v[i]]更新了。也就是说我们使用的是第[i]个循环里面的f[j - v[i]]，而我们实际要用的是第[i-1]个循环里面的f[j - v[i]]。怎么解决这个问题呢？把内层 j 的循环顺序变成从大到小就可以了。这样在算f[j-v[i]]的时候，由于是从大到小枚举的所有体积，在算f[j]的时候，f[j-v[i]]还没有被更新过。那么它存的就是第i-1层的j-v[i]，也就是f[i-1][j-v[i]]。所以和原状态转移方程等价。
+
+如果不改j的判断条件为 j>=v[i]，下面这样写也能AC:
+
+```
+package main
+
+import "fmt"
+
+const N int = 1010
+
+// 在二维版本中，f[i]只用到了f[i-1]这一层，所以可以用滚动数组来做, 直接把第一维删掉
+var f [N]int    // 状态，一维优化版
+var n, m int    // n表示物品个数，m表示背包容量
+var v, w [N]int // v表示物品的体积，w表示物品的价值
+
+// 一维优化版
+
+func main() {
+	fmt.Scanf("%d%d", &n, &m)
+	for i := 1; i <= n; i++ {
+		fmt.Scanf("%d%d", &v[i], &w[i])
+	}
+	for i := 1; i <= n; i++ {
+		for j := m; j >=0; j-- {
+		    if j >= v[i] {
+		        f[j] = max(f[j], f[j-v[i]]+w[i])
+		    }
+		}
+	}
+	fmt.Printf("%d\n", f[m])
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
+
+```
