@@ -27,7 +27,7 @@ func dfs(u int) {
 			nums[u] = i // 当前位置设为i
 			dfs(u + 1)
 			st[i] = false
-			nums[u] = 0
+			nums[u] = 0 // 这句写不写都行，因为每次都会重新覆盖nums[u]
 		}
 	}
 }
