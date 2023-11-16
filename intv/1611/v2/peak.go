@@ -20,3 +20,18 @@ func findPeakElement(N int) int {
 	}
 	return l
 }
+
+// 这种写法可以AC
+func findPeakElement2(N int) int {
+	l, r := 0, N-1
+	for l < r {
+		mid := (l + r + 1) >> 1
+		// 区别在这儿！需要与mid左边的元素作比较！
+		if query(mid) > query(mid-1) {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return l
+}
